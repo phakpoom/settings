@@ -34,6 +34,7 @@ class TypeRegistry implements TypeRegistryInterface
         $this->add(new DefaultType());
         $this->add(new JsonType());
         $this->add(new StringType());
+        $this->add(new YamlType());
     }
 
     /**

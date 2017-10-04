@@ -13,29 +13,27 @@ declare(strict_types=1);
 
 namespace PhpMob\Settings\Type;
 
+use Symfony\Component\Yaml\Yaml;
+
 /**
  * @author Ishmael Doss <nukboon@gmail.com>
  */
-class JsonType implements TypeInterface
+class YamlType implements TypeInterface
 {
     /**
      * {@inheritdoc}
      *
      * value: |
-            {
-                "user_registration": {
-                    "subject": "User Registration",
-                    "template": "@PhpMobCms/tpls/email/registration.html.twig"
-                },
-                "verification_token": {
-                    "subject": "User Verification",
-                    "template": "@PhpMobCms/tpls/email/verification.html.twig"
-                }
-            }
+            user_registration:
+                subject: "User Registration"
+                template: "@PhpMobCms/tpls/email/registration.html.twig"
+            verification_token:
+                subject: "User Verification"
+                template: "@PhpMobCms/tpls/email/verification.html.twig"
      */
     public static function getName()
     {
-        return 'json';
+        return 'yaml';
     }
 
     /**
@@ -45,7 +43,7 @@ class JsonType implements TypeInterface
      */
     public function getter($value)
     {
-        return json_decode($value, true);
+        return Yaml::parse($value);
     }
 
     /**
@@ -55,6 +53,6 @@ class JsonType implements TypeInterface
      */
     public function setter($value)
     {
-        return json_encode($value);
+        return Yaml::dump($value);
     }
 }
