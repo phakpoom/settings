@@ -146,7 +146,7 @@ class SettingManager implements SettingManagerInterface
             throw new \LogicException($e->getMessage());
         }
 
-        if (($owner && !$section->isOwnerAware()) || (!$owner && $section->isOwnerAware())) {
+        if ((!empty($owner) && !$section->isOwnerAware()) || (empty($owner) && $section->isOwnerAware())) {
             throw new \LogicException('Wrong section accessing.');
         }
     }
