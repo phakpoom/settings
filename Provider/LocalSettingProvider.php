@@ -67,7 +67,7 @@ class LocalSettingProvider implements SettingProviderInterface
 
     /**
      * @param SettingSchema[] $settings
-     * @param null|string $owner
+     * @param string|null $owner
      *
      * @return SettingInterface[]
      */

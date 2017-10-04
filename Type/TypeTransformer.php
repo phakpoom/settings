@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace PhpMob\Settings\Type;
 
-use PhpMob\Settings\Model\SettingInterface;
 use PhpMob\Settings\Schema\SettingSchemaRegistryInterface;
 
 /**

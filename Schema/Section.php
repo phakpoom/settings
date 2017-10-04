@@ -52,7 +52,7 @@ class Section implements \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isOwnerAware()
     {
@@ -60,7 +60,7 @@ class Section implements \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isEnabled()
     {
@@ -87,6 +87,7 @@ class Section implements \JsonSerializable
      * @param string $key
      *
      * @return SettingSchema
+     *
      * @throws \InvalidArgumentException
      */
     public function getSetting($key)
@@ -109,7 +110,7 @@ class Section implements \JsonSerializable
     /**
      * {@inheritdoc}
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         return array_merge($this->data, [
             'settings' => $this->settings,

@@ -29,6 +29,7 @@ interface SettingSchemaRegistryInterface
      * @param $key
      *
      * @return SettingSchema
+     *
      * @throws \InvalidArgumentException
      */
     public function get($section, $key);
@@ -37,6 +38,7 @@ interface SettingSchemaRegistryInterface
      * @param $section
      *
      * @return Section
+     *
      * @throws \InvalidArgumentException
      */
     public function getSection($section);

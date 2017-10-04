@@ -57,7 +57,7 @@ class Blueprint implements \JsonSerializable
     /**
      * {@inheritdoc}
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         return $this->data;
     }

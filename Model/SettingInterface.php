@@ -73,7 +73,7 @@ interface SettingInterface
     /**
      * @param string $section
      * @param string $key
-     * @param null|string $owner
+     * @param string|null $owner
      *
      * @return bool
      */

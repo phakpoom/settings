@@ -29,7 +29,7 @@ class BooleanType implements TypeInterface
     /**
      * @param mixed $value
      *
-     * @return boolean
+     * @return bool
      */
     public function getter($value)
     {
@@ -39,7 +39,7 @@ class BooleanType implements TypeInterface
     /**
      * @param mixed $value
      *
-     * @return boolean
+     * @return bool
      */
     public function setter($value)
     {

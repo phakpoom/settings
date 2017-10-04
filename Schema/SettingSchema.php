@@ -40,7 +40,7 @@ class SettingSchema implements \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isEnabled()
     {
@@ -106,7 +106,7 @@ class SettingSchema implements \JsonSerializable
     /**
      * {@inheritdoc}
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         return $this->data;
     }

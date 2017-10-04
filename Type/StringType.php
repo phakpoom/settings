@@ -33,7 +33,7 @@ class StringType implements TypeInterface
      */
     public function getter($value)
     {
-        return (string)$value;
+        return (string) $value;
     }
 
     /**
@@ -43,6 +43,6 @@ class StringType implements TypeInterface
      */
     public function setter($value)
     {
-        return (string)$value;
+        return (string) $value;
     }
 }

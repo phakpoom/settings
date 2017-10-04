@@ -104,7 +104,7 @@ class Setting implements SettingInterface
      */
     public function getValue(): string
     {
-        return (string)$this->value;
+        return (string) $this->value;
     }
 
     /**

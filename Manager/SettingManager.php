@@ -88,7 +88,7 @@ class SettingManager implements SettingManagerInterface
     }
 
     /**
-     * @param null|string $owner
+     * @param string|null $owner
      */
     private function loadSettings(?string $owner)
     {
@@ -103,7 +103,7 @@ class SettingManager implements SettingManagerInterface
      * @param Collection $settings
      * @param string $section
      * @param string $key
-     * @param null|string $owner
+     * @param string|null $owner
      *
      * @return Collection
      */
@@ -121,7 +121,7 @@ class SettingManager implements SettingManagerInterface
     /**
      * @param $section
      * @param $key
-     * @param null|string $owner
+     * @param string|null $owner
      *
      * @return SettingInterface|null
      */
@@ -136,7 +136,7 @@ class SettingManager implements SettingManagerInterface
 
     /**
      * @param $section
-     * @param null|string $owner
+     * @param string|null $owner
      */
     private function assertSectionScope($section, ?string $owner)
     {
@@ -147,7 +147,7 @@ class SettingManager implements SettingManagerInterface
         }
 
         if (($owner && !$section->isOwnerAware()) || (!$owner && $section->isOwnerAware())) {
-            throw new \LogicException("Wrong section accessing.");
+            throw new \LogicException('Wrong section accessing.');
         }
     }
 
@@ -207,7 +207,7 @@ class SettingManager implements SettingManagerInterface
      */
     public function get(string $path, ?string $owner)
     {
-        @list($section, $key) = explode('.', $path);
+        @[$section, $key] = explode('.', $path);
 
         if (empty($key)) {
             throw new \InvalidArgumentException("The $path should be something like: `section.key`.");
@@ -221,7 +221,7 @@ class SettingManager implements SettingManagerInterface
      */
     public function set(string $path, $value, ?string $owner): void
     {
-        @list($section, $key) = explode('.', $path);
+        @[$section, $key] = explode('.', $path);
 
         if (empty($key)) {
             throw new \InvalidArgumentException("The $path should be something like: `section.key`.");

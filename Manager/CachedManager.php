@@ -26,7 +26,7 @@ class CachedManager implements SettingManagerInterface
     private $cache;
 
     /**
-     * @var null|int|\DateInterval
+     * @var int|\DateInterval|null
      */
     private $ttl = 0;
 
@@ -45,7 +45,7 @@ class CachedManager implements SettingManagerInterface
     /**
      * @param $section
      * @param $key
-     * @param null|string $owner
+     * @param string|null $owner
      *
      * @return string
      */
@@ -108,7 +108,7 @@ class CachedManager implements SettingManagerInterface
      */
     public function get(string $path, ?string $owner)
     {
-        list($section, $key) = explode('.', $path);
+        [$section, $key] = explode('.', $path);
 
         return $this->getSetting($section, $key, $owner);
     }
@@ -118,7 +118,7 @@ class CachedManager implements SettingManagerInterface
      */
     public function set(string $path, $value, ?string $owner): void
     {
-        list($section, $key) = explode('.', $path);
+        [$section, $key] = explode('.', $path);
 
         $this->setSetting($section, $key, $value, $owner, true);
     }
