@@ -43,6 +43,6 @@ class BooleanType implements TypeInterface
      */
     public function setter($value)
     {
-        return empty($value) ? 0 : 1;
+        return empty($value) ? '0' : '1';
     }
 }

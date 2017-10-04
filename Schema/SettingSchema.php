@@ -68,7 +68,7 @@ class SettingSchema implements \JsonSerializable
      */
     public function getValue()
     {
-        return $this->data['value'];
+        return (string) $this->data['value'];
     }
 
     /**
