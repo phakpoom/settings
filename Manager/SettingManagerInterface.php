@@ -25,7 +25,7 @@ interface SettingManagerInterface
      * @param string|null $owner
      * @param bool $autoFlush
      */
-    public function setSetting(string $section, string $key, $value, ?string $owner, $autoFlush = false): void;
+    public function setSetting(string $section, string $key, $value, ?string $owner = null, $autoFlush = false): void;
 
     /**
      * @param string $section
@@ -34,7 +34,7 @@ interface SettingManagerInterface
      *
      * @return mixed
      */
-    public function getSetting(string $section, string $key, ?string $owner);
+    public function getSetting(string $section, string $key, ?string $owner = null);
 
     /**
      * @param string $path
@@ -42,14 +42,14 @@ interface SettingManagerInterface
      *
      * @return mixed
      */
-    public function get(string $path, ?string $owner);
+    public function get(string $path, ?string $owner = null);
 
     /**
      * @param string $path
      * @param $value
      * @param string|null $owner
      */
-    public function set(string $path, $value, ?string $owner): void;
+    public function set(string $path, $value, ?string $owner = null): void;
 
     /**
      * Flush

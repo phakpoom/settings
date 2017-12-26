@@ -49,7 +49,7 @@ class CachedManager implements SettingManagerInterface
      *
      * @return string
      */
-    private function getCacheKey($section, $key, ?string $owner)
+    private function getCacheKey($section, $key, ?string $owner = null)
     {
         return 'phpmob-settings.' . ($owner
                 ? sprintf('%s.%s.%s', $section, $key, $owner)
@@ -60,7 +60,7 @@ class CachedManager implements SettingManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function setSetting(string $section, string $key, $value, ?string $owner, $autoFlush = false): void
+    public function setSetting(string $section, string $key, $value, ?string $owner = null, $autoFlush = false): void
     {
         $cacheKey = $this->getCacheKey($section, $key, $owner);
 
@@ -78,7 +78,7 @@ class CachedManager implements SettingManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function getSetting(string $section, string $key, ?string $owner)
+    public function getSetting(string $section, string $key, ?string $owner = null)
     {
         $cacheKey = $this->getCacheKey($section, $key, $owner);
 
@@ -106,9 +106,9 @@ class CachedManager implements SettingManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function get(string $path, ?string $owner)
+    public function get(string $path, ?string $owner = null)
     {
-        [$section, $key] = explode('.', $path);
+        @list($section, $key) = explode('.', $path);
 
         return $this->getSetting($section, $key, $owner);
     }
@@ -116,9 +116,9 @@ class CachedManager implements SettingManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function set(string $path, $value, ?string $owner): void
+    public function set(string $path, $value, ?string $owner = null): void
     {
-        [$section, $key] = explode('.', $path);
+        @list($section, $key) = explode('.', $path);
 
         $this->setSetting($section, $key, $value, $owner, true);
     }

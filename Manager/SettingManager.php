@@ -154,7 +154,7 @@ class SettingManager implements SettingManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function setSetting(string $section, string $key, $value, ?string $owner, $autoFlush = false): void
+    public function setSetting(string $section, string $key, $value, ?string $owner = null, $autoFlush = false): void
     {
         $this->assertSectionScope($section, $owner);
 
@@ -174,7 +174,7 @@ class SettingManager implements SettingManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function getSetting(string $section, string $key, ?string $owner)
+    public function getSetting(string $section, string $key, ?string $owner = null)
     {
         $this->assertSectionScope($section, $owner);
 
@@ -205,12 +205,12 @@ class SettingManager implements SettingManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function get(string $path, ?string $owner)
+    public function get(string $path, ?string $owner = null)
     {
-        @[$section, $key] = explode('.', $path);
+        @list($section, $key) = explode('.', $path);
 
         if (empty($key)) {
-            throw new \InvalidArgumentException("The $path should be something like: `section.key`.");
+            return null;
         }
 
         return $this->getSetting($section, $key, $owner);
@@ -219,9 +219,9 @@ class SettingManager implements SettingManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function set(string $path, $value, ?string $owner): void
+    public function set(string $path, $value, ?string $owner = null): void
     {
-        @[$section, $key] = explode('.', $path);
+        @list($section, $key) = explode('.', $path);
 
         if (empty($key)) {
             throw new \InvalidArgumentException("The $path should be something like: `section.key`.");
