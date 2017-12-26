@@ -178,7 +178,9 @@ class SettingManager implements SettingManagerInterface
     {
         $this->assertSectionScope($section, $owner);
 
-        $setting = $this->findSetting($section, $key, $owner);
+        if (!$setting = $this->findSetting($section, $key, $owner)) {
+            return null;
+        }
 
         return $this->transformer->reverse($section, $key, $setting->getValue());
     }
