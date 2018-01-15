@@ -78,6 +78,14 @@ class Section implements \JsonSerializable
     /**
      * @return string
      */
+    public function getDescription()
+    {
+        return $this->data['description'];
+    }
+
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->data['name'];

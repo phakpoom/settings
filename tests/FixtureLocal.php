@@ -31,12 +31,14 @@ class FixtureLocal
         return [
             'section1' => [
                 'label' => 'Section 1',
+                'description' => 'Section 1 description',
                 'owner_aware' => false,
                 'enabled' => true,
                 'settings' => [
                     'foo' => [
                         'type' => 'string',
                         'label' => 'foo_label',
+                        'description' => 'foo_description',
                         'value' => 'foo_value',
                         'enabled' => true,
                         'blueprint' => [
@@ -46,6 +48,7 @@ class FixtureLocal
                     'bar' => [
                         'type' => 'string',
                         'label' => 'bar_label',
+                        'description' => 'bar_description',
                         'value' => 'bar_value',
                         'enabled' => true,
                         'blueprint' => [
@@ -61,13 +64,15 @@ class FixtureLocal
     {
         return [
             'section2' => [
-                'label' => 'Section 1',
+                'label' => 'Section 2',
+                'description' => 'Section 2 description',
                 'owner_aware' => true,
                 'enabled' => true,
                 'settings' => [
                     'foo' => [
                         'type' => 'string',
                         'label' => 'foo_label',
+                        'description' => 'foo_description',
                         'value' => 'foo_value',
                         'enabled' => true,
                         'blueprint' => [
@@ -84,6 +89,7 @@ class FixtureLocal
                     'bar' => [
                         'type' => 'string',
                         'label' => 'bar_label',
+                        'description' => 'bar_description',
                         'value' => 'bar_value',
                         'enabled' => true,
                         'blueprint' => [
@@ -94,12 +100,14 @@ class FixtureLocal
             ],
             'section3' => [
                 'label' => 'Section 3',
+                'description' => 'Section 3 description',
                 'owner_aware' => true,
                 'enabled' => true,
                 'settings' => [
                     'foo' => [
                         'type' => 'string',
                         'label' => 'foo_label',
+                        'description' => 'foo_description',
                         'value' => 'foo_value',
                         'enabled' => true,
                         'blueprint' => [
@@ -109,6 +117,7 @@ class FixtureLocal
                     'bar' => [
                         'type' => 'string',
                         'label' => 'bar_label',
+                        'description' => 'bar_description',
                         'value' => 'bar_value',
                         'enabled' => true,
                         'blueprint' => [
@@ -119,12 +128,14 @@ class FixtureLocal
             ],
             'section8' => [
                 'label' => 'Section 8',
+                'description' => 'Section 8 description',
                 'owner_aware' => true,
                 'enabled' => true,
                 'settings' => [
                     'foo' => [
                         'type' => 'string',
                         'label' => 'foo_label',
+                        'description' => 'foo_description',
                         'value' => 'foo_value',
                         'enabled' => true,
                         'blueprint' => [
@@ -134,6 +145,7 @@ class FixtureLocal
                     'bar' => [
                         'type' => 'string',
                         'label' => 'bar_label',
+                        'description' => 'bar_description',
                         'value' => 'bar_value',
                         'enabled' => true,
                         'blueprint' => [

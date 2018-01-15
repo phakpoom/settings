@@ -58,6 +58,14 @@ class SettingSchema implements \JsonSerializable
     /**
      * @return string
      */
+    public function getDescription()
+    {
+        return $this->data['description'];
+    }
+
+    /**
+     * @return string
+     */
     public function getKey()
     {
         return $this->data['key'];
