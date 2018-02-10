@@ -33,7 +33,7 @@ class Blueprint implements \JsonSerializable
     /**
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->data['type'];
     }
@@ -41,7 +41,7 @@ class Blueprint implements \JsonSerializable
     /**
      * @return array
      */
-    public function getOptions()
+    public function getOptions(): array
     {
         return $this->data['options'];
     }
@@ -49,7 +49,7 @@ class Blueprint implements \JsonSerializable
     /**
      * @return array
      */
-    public function getConstraints()
+    public function getConstraints(): array
     {
         return $this->data['constraints'];
     }
@@ -57,7 +57,7 @@ class Blueprint implements \JsonSerializable
     /**
      * {@inheritdoc}
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->data;
     }

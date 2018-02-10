@@ -55,7 +55,7 @@ class SettingSchemaRegistry implements SettingSchemaRegistryInterface
     /**
      * {@inheritdoc}
      */
-    public function get($section, $key)
+    public function get($section, $key): SettingSchema
     {
         return $this->getSection($section)->getSetting($key);
     }
@@ -63,7 +63,7 @@ class SettingSchemaRegistry implements SettingSchemaRegistryInterface
     /**
      * {@inheritdoc}
      */
-    public function getSection($section)
+    public function getSection($section): Section
     {
         if (!array_key_exists($section, $this->schemas)) {
             throw new \InvalidArgumentException("No section name `$section`.");
@@ -75,7 +75,7 @@ class SettingSchemaRegistry implements SettingSchemaRegistryInterface
     /**
      * {@inheritdoc}
      */
-    public function getGlobals()
+    public function getGlobals(): array
     {
         return array_values($this->types['globals']);
     }
@@ -83,7 +83,7 @@ class SettingSchemaRegistry implements SettingSchemaRegistryInterface
     /**
      * {@inheritdoc}
      */
-    public function getOwners()
+    public function getOwners(): array
     {
         return array_values($this->types['owners']);
     }
@@ -91,7 +91,7 @@ class SettingSchemaRegistry implements SettingSchemaRegistryInterface
     /**
      * {@inheritdoc}
      */
-    public function getAll()
+    public function getAll(): array
     {
         return array_values($this->schemas);
     }

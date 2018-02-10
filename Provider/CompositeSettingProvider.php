@@ -45,7 +45,7 @@ class CompositeSettingProvider implements SettingProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function findUserSettings(string $owner)
+    public function findUserSettings(string $owner): Collection
     {
         return $this->mergeSettings(
             $this->remoteProvider->findUserSettings($owner),
@@ -56,7 +56,7 @@ class CompositeSettingProvider implements SettingProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function findGlobalSettings()
+    public function findGlobalSettings(): Collection
     {
         return $this->mergeSettings(
             $this->remoteProvider->findGlobalSettings(),
@@ -70,7 +70,7 @@ class CompositeSettingProvider implements SettingProviderInterface
      *
      * @return ArrayCollection
      */
-    private function mergeSettings(Collection $remotes, Collection $locals)
+    private function mergeSettings(Collection $remotes, Collection $locals): ArrayCollection
     {
         $settings = $remotes->toArray();
 
@@ -90,7 +90,7 @@ class CompositeSettingProvider implements SettingProviderInterface
      *
      * @return bool
      */
-    private function exists(Collection $remote, SettingInterface $object)
+    private function exists(Collection $remote, SettingInterface $object): bool
     {
         return $remote->exists(function (int $key, SettingInterface $setting) use ($object) {
             return $setting->isEqual($object);

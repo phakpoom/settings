@@ -32,7 +32,7 @@ interface SettingSchemaRegistryInterface
      *
      * @throws \InvalidArgumentException
      */
-    public function get($section, $key);
+    public function get($section, $key): SettingSchema;
 
     /**
      * @param $section
@@ -41,20 +41,20 @@ interface SettingSchemaRegistryInterface
      *
      * @throws \InvalidArgumentException
      */
-    public function getSection($section);
+    public function getSection($section): Section;
 
     /**
      * @return Section[]
      */
-    public function getGlobals();
+    public function getGlobals(): array;
 
     /**
      * @return Section[]
      */
-    public function getOwners();
+    public function getOwners(): array;
 
     /**
      * @return Section[]
      */
-    public function getAll();
+    public function getAll(): array;
 }

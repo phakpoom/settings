@@ -44,7 +44,7 @@ class Section implements \JsonSerializable
     /**
      * @param array $settings
      */
-    private function initSettings(array $settings)
+    private function initSettings(array $settings): void
     {
         foreach ($settings as $schemaKey => $schemaData) {
             $this->settings[$schemaKey] = new SettingSchema($this, $schemaKey, $schemaData);
@@ -54,7 +54,7 @@ class Section implements \JsonSerializable
     /**
      * @return bool
      */
-    public function isOwnerAware()
+    public function isOwnerAware(): bool
     {
         return $this->data['owner_aware'];
     }
@@ -62,7 +62,7 @@ class Section implements \JsonSerializable
     /**
      * @return bool
      */
-    public function isEnabled()
+    public function isEnabled(): bool
     {
         return $this->data['enabled'];
     }
@@ -70,15 +70,15 @@ class Section implements \JsonSerializable
     /**
      * @return string
      */
-    public function getLabel()
+    public function getLabel(): string
     {
         return $this->data['label'];
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->data['description'];
     }
@@ -86,7 +86,7 @@ class Section implements \JsonSerializable
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->data['name'];
     }
@@ -98,9 +98,9 @@ class Section implements \JsonSerializable
      *
      * @throws \InvalidArgumentException
      */
-    public function getSetting($key)
+    public function getSetting($key): SettingSchema
     {
-        if (!array_key_exists($key, $this->settings)) {
+        if (!$this->hasSetting($key)) {
             throw new \InvalidArgumentException("No setting key `$key` in this section.`");
         }
 
@@ -108,9 +108,19 @@ class Section implements \JsonSerializable
     }
 
     /**
+     * @param string $key
+     *
+     * @return bool
+     */
+    public function hasSetting(string $key): bool
+    {
+        return array_key_exists($key, $this->settings);
+    }
+
+    /**
      * @return SettingSchema[]
      */
-    public function getSettings()
+    public function getSettings(): array
     {
         return array_values($this->settings);
     }
@@ -118,7 +128,7 @@ class Section implements \JsonSerializable
     /**
      * {@inheritdoc}
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return array_merge($this->data, [
             'settings' => $this->settings,

@@ -42,7 +42,7 @@ class SettingSchema implements \JsonSerializable
     /**
      * @return bool
      */
-    public function isEnabled()
+    public function isEnabled(): bool
     {
         return $this->data['enabled'];
     }
@@ -50,15 +50,15 @@ class SettingSchema implements \JsonSerializable
     /**
      * @return string
      */
-    public function getLabel()
+    public function getLabel(): string
     {
         return $this->data['label'];
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->data['description'];
     }

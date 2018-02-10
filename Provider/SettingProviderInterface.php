@@ -26,10 +26,10 @@ interface SettingProviderInterface
      *
      * @return Collection|SettingInterface[]
      */
-    public function findUserSettings(string $owner);
+    public function findUserSettings(string $owner): Collection;
 
     /**
      * @return Collection|SettingInterface[]
      */
-    public function findGlobalSettings();
+    public function findGlobalSettings(): Collection;
 }

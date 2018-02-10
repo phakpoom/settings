@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace PhpMob\Settings\Provider;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\ObjectRepository;
 use PhpMob\Settings\Model\Setting;
@@ -36,7 +37,7 @@ class RemoteSettingProvider implements SettingProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function findUserSettings(string $owner)
+    public function findUserSettings(string $owner): Collection
     {
         return new ArrayCollection($this->repository->findBy(['owner' => $owner]));
     }
@@ -44,7 +45,7 @@ class RemoteSettingProvider implements SettingProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function findGlobalSettings()
+    public function findGlobalSettings(): Collection
     {
         return new ArrayCollection($this->repository->findBy(['owner' => null]));
     }

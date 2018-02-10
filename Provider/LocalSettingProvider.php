@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace PhpMob\Settings\Provider;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use PhpMob\Settings\Model\Setting;
 use PhpMob\Settings\Model\SettingInterface;
 use PhpMob\Settings\Schema\SettingSchema;
@@ -40,7 +41,7 @@ class LocalSettingProvider implements SettingProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function findUserSettings(string $owner)
+    public function findUserSettings(string $owner): Collection
     {
         $settings = [];
 
@@ -54,7 +55,7 @@ class LocalSettingProvider implements SettingProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function findGlobalSettings()
+    public function findGlobalSettings(): Collection
     {
         $settings = [];
 
@@ -71,7 +72,7 @@ class LocalSettingProvider implements SettingProviderInterface
      *
      * @return SettingInterface[]
      */
-    private function populateSettings(array $settings, ?string $owner = null)
+    private function populateSettings(array $settings, ?string $owner = null): array
     {
         $objects = [];
 
