@@ -1,5 +1,5 @@
 {
-    "name": "phpmob/settings",
+    "name": "phakpoom/settings",
     "description": "Just a settings library.",
     "keywords": [
         "php",
@@ -12,6 +12,9 @@
         {
             "name": "Ishmael Doss",
             "email": "nukboon@gmail.com"
+        },
+        {
+            "name": "Bonn"
         }
     ],
     "autoload": {
@@ -25,8 +28,8 @@
         }
     },
     "require": {
-        "php": "^7.1",
-        "doctrine/common": "^2.8"
+        "php": "^7.4",
+        "doctrine/common": "^2.8 || ^3.0"
     },
     "require-dev": {
         "cache/filesystem-adapter": "^1.0",
