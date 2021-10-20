@@ -33,8 +33,7 @@
     },
     "require-dev": {
         "cache/filesystem-adapter": "^1.0",
-        "phpunit/phpunit": "^5.6",
-        "sylius-labs/coding-standard": "^1.0",
+        "phpunit/phpunit": "^8.0",
         "symfony/form": "^3.3",
         "symfony/validator": "^3.3"
     },

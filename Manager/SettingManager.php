@@ -15,8 +15,8 @@ namespace PhpMob\Settings\Manager;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Persistence\ManagerRegistry;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use PhpMob\Settings\Model\Setting;
 use PhpMob\Settings\Model\SettingInterface;
 use PhpMob\Settings\Provider\SettingProviderInterface;
@@ -29,7 +29,7 @@ use PhpMob\Settings\Type\TypeTransformerInterface;
 class SettingManager implements SettingManagerInterface
 {
     /**
-     * @var ObjectManager
+     * @var EntityManagerInterface
      */
     private $manager;
 
