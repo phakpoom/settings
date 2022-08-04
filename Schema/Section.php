@@ -128,6 +128,7 @@ class Section implements \JsonSerializable
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize(): array
     {
         return array_merge($this->data, [
