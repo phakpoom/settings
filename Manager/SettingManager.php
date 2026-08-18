@@ -136,6 +136,24 @@ class SettingManager implements SettingManagerInterface
 
     /**
      * @param $section
+     * @param $key
+     * @param string|null $owner
+     *
+     * @return SettingInterface|null
+     */
+    private function findPersistedSetting($section, $key, ?string $owner)
+    {
+        $setting = $this->manager->getRepository(Setting::class)->findOneBy([
+            'section' => $section,
+            'key' => $key,
+            'owner' => $owner,
+        ]);
+
+        return $setting instanceof SettingInterface ? $setting : null;
+    }
+
+    /**
+     * @param $section
      * @param string|null $owner
      */
     private function assertSectionScope($section, ?string $owner)
@@ -158,7 +176,9 @@ class SettingManager implements SettingManagerInterface
     {
         $this->assertSectionScope($section, $owner);
 
-        $setting = $this->findSetting($section, $key, $owner) ?: new Setting();
+        $setting = $this->findPersistedSetting($section, $key, $owner)
+            ?: $this->findSetting($section, $key, $owner)
+            ?: new Setting();
         $setting->setOwner($owner);
         $setting->setSection($section);
         $setting->setKey($key);
@@ -178,7 +198,7 @@ class SettingManager implements SettingManagerInterface
     {
         $this->assertSectionScope($section, $owner);
 
-        if (!$setting = $this->findSetting($section, $key, $owner)) {
+        if (!$setting = $this->findPersistedSetting($section, $key, $owner) ?: $this->findSetting($section, $key, $owner)) {
             return null;
         }
 
